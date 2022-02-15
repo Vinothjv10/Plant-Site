@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+ padding: 0px;
+ margin: 0px;
+
+}
+body{
+    background-color: #e1e1df ;
+    font-family: 'Lobster', cursive;
+   justify-content: center;
+}
