@@ -1,848 +1,1308 @@
-<div class="row main" >
-    <div class="col-lg-3 col-md-6 col-sm-12 "  id="card1" > 
-               
-        <img class="card-img-top" id="mini-img" src="assets/flower/cflower1.1.jpg" >
-        <div class="card-body">
-          <h5 class="card-title" style="font-size: 25px;"> Cupid Bows </h5>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          
-          <span class="heading"> Rating  : </span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star unchecked "></span>
+<style>
+  * {
+    font-family: 'Satisfy', cursive;
+  }
 
-          <button (click)="showDialog3_0 = !showDialog3_0" class="btn btn-primary">Details</button>
-        </div>
+  h5,
+  h2,
+  h3 {
+    font-weight: bold;
+  }
+
+  .main {
+    margin-top: 80px;
+  }
+
+  /* changes */
 
 
-      <app-dialog [(visible)]="showDialog3_0" title="Details Card" data-popup="width:300;height:250">
-        <div class="container">
-          <div class="split left">
-            <h2>Cupid Bows</h2> 
+  img {
+    margin-left: 25px;
+    height: 32px;
+    width: 32px;
+  }
+
+  .boxcontainer {
+    margin: auto;
+    margin-top: 40px;
+    position: relative;
+    width: 740px;
+    height: 59px;
+    background: #C4C4C4;
+    border: 3px solid #159604;
+    box-sizing: border-box;
+    border-radius: 30px;
+    padding: 0px 5px;
+  }
+
+  .title-head {
+    font-size: 24px;
+    font-weight: 400px;
+    padding-bottom: 10px;
+  }
+
+  .elementscontainer {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  #search {
+    border: none;
+    outline: none;
+    height: 100%;
+    width: 100%;
+    background: #c4c4c4;
+    border-radius: 50px;
+    font-size: 29px;
+    text-transform: uppercase;
+  }
+
+  input {
+    margin-right: 50px;
+  }
+
+  .no-result {
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .container {
+    margin: 20px;
+    padding-top: 55px;
+  }
+
+  .row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    border: 2px solid #159604;
+    border-radius: 20px;
+    position: relative;
+    flex: 1;
+    max-width: 374px;
+    height: 440px;
+    margin: 10px;
+  }
+
+  .center-img {
+    align-items: center;
+    width: 321px;
+    height: 245px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+
+  #mini-img {
+    width: 300px;
+    height: 245px;
+    border-radius: 15px;
+
+  }
+
+  #img-url {
+    padding-top: 10px;
+    margin-left: 70px;
+  }
+
+  .position {
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+
+  .font {
+    padding: 5px;
+    margin-top: -10px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: #282725;
+  }
+
+  .login,
+  h3 {
+    text-align: center;
+    font-size: 23px;
+    font-family: 600px;
+  }
+
+  button {
+    font-size: 18px;
+    margin: 10px;
+    margin-left: 120px;
+    height: 38px;
+    width: 90px;
+    background: black;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+
+  }
+
+  .btn-primary {
+    border-color: black;
+  }
+
+  .error {
+    color: red;
+  }
+
+  .heading {
+    font-size: 20px;
+  }
+
+  .checked {
+    color: orange;
+  }
+
+
+  /* reference page */
+  h2 {
+    text-align: center;
+  }
+
+  h4 {
+    text-align: center;
+  }
+
+  p {
+    text-align: left;
+    font-size: 18px;
+    /* changes */
+  }
+
+  /* changes */
+  .centered {
+    font-size: 18px;
+  }
+
+  .slider {
+    width: 400px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .image-container {
+    width: 1100px;
+    height: 300px;
+    clear: both;
+    position: relative;
+    -webkit-transition: left 2s;
+    -moz-transition: left 2s;
+    -o-transition: left 2s;
+    transition: left 2s;
+  }
+
+  .image-container .img {
+    width: 300px;
+    height: 200px;
+  }
+
+  .slide {
+    width: 300px;
+    border-radius: 10px;
+    right: -19%;
+    height: 250px;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+  }
+
+  #slide-1:target~.image-container {
+    left: 0px;
+  }
+
+  #slide-2:target~.image-container {
+    left: -500px;
+  }
+
+  #slide-3:target~.image-container {
+    left: -1000px;
+  }
+
+  .buttons {
+    position: relative;
+    left: 45%;
+  }
+
+  .buttons a {
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    border-radius: 50px;
+    background-color: black;
+  }
+
+  .split {
+    height: 91%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+
+  .left {
+    width: 37%;
+    top: 6%;
+    left: 13%;
+    bottom: -10%;
+    background-color: wheat;
+    /* background-color:rgb(241, 205, 136); */
+    /* background-color: #EEB76B; */
+    /* border-radius: 10px 0px 0px 10px; */
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .right {
+    top: 6%;
+    width: 38%;
+    right: 12.99%;
+    float: right;
+    background-color: rgb(183, 252, 183);
+    /* background-color: #1EE494; */
+    border-radius: 0px 10px 10px 0px;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+  .left .btn {
+    bottom: 0%;
+    left: 50%;
+  }
+
+  .responsive {
+    display: none;
+  }
+
+  @media(max-width:600px) {
+    .container {
+      position: relative;
+      flex-wrap: wrap;
+    }
+
+    .left {
+      width: 50%;
+      top: 5%;
+      left: 10%;
+      flex-wrap: wrap;
+      overflow-x: hidden;
+      background-color: wheat;
+      display: none;
+    }
+
+    .right {
+      top: 1.5%;
+      width: 90%;
+      height: 97%;
+      right: -4%;
+      left: 5%;
+      flex-wrap: wrap;
+      overflow-x: hidden;
+      background-color: none;
+      border-width: 1px;
+      border-color: black;
+      border-radius: 10px;
+      padding-left: 3px;
+    }
+
+    .responsive {
+      display: table-cell;
+    }
+
+    .slide {
+      left: 7%;
+      width: 280px;
+    }
+  }
+</style>
+<div class="row main">
+  <div class="col-lg-3 col-md-6 col-sm-12 " id="card1">
+
+    <img class="card-img-top" id="mini-img" src="assets/flower/cflower1.1.jpg">
+    <div class="card-body">
+      <h5 class="card-title" style="font-size: 25px;"> Cupid Bows </h5>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <span class="heading"> Rating : </span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star unchecked "></span>
+
+      <button (click)="showDialog3_0 = !showDialog3_0" class="btn btn-primary">Details</button>
+    </div>
+
+
+    <app-dialog [(visible)]="showDialog3_0" title="Details Card" data-popup="width:300;height:250">
+      <div class="container">
+        <div class="split left">
+          <h2>Cupid Bows</h2>
           <img src="assets/flower/cflower1.1.jpg" class="slide" width="500" height="300" />
           <hr>
           <h3>Description</h3>
-            <p>Cupid Bow plant (Achimenes longiflora) has many common names including Cupid's bow, nut-orchid, magic flower and hot water plant. </p>
-            <p>This perennial tropical plant is typically grown as an indoor, container plant.  It can also be grown as an annual in non-tropical environments.Flowers bloom from summer into fall.   </p>
-            
+          <p>Cupid Bow plant (Achimenes longiflora) has many common names including Cupid's bow, nut-orchid, magic
+            flower and hot water plant. </p>
+          <p>This perennial tropical plant is typically grown as an indoor, container plant. It can also be grown as an
+            annual in non-tropical environments.Flowers bloom from summer into fall. </p>
+
         </div>
         <div class="split right">
           <div class="responsive">
-            <h2>Cupid Bows</h2> 
+            <h2>Cupid Bows</h2>
             <img src="assets/flower/cflower1.1.jpg" class="slide" width="500" height="300" />
             <h3>Description</h3>
-            <p>Cupid Bow plant (Achimenes longiflora) has many common names including Cupid's bow, nut-orchid, magic flower and hot water plant.This perennial tropical plant is typically grown as an indoor, container plant.  It can also be grown as an annual in non-tropical environments. </p>
-            <p>It can grow up to 60 cm (24 in) long, arising from small rhizomes. The hairy leaves have saw toothed edges and can be up to 90 mm (3+1⁄2 in) long and 40 mm (1+1⁄2 in) wide. The flowers are produced from June to October and are usually blue with a white throat. They can be quite large – up to 50 mm (2 in) long and 75 mm (3 in) across.</p>
+            <p>Cupid Bow plant (Achimenes longiflora) has many common names including Cupid's bow, nut-orchid, magic
+              flower and hot water plant.This perennial tropical plant is typically grown as an indoor, container plant.
+              It can also be grown as an annual in non-tropical environments. </p>
+            <p>It can grow up to 60 cm (24 in) long, arising from small rhizomes. The hairy leaves have saw toothed
+              edges and can be up to 90 mm (3+1⁄2 in) long and 40 mm (1+1⁄2 in) wide. The flowers are produced from June
+              to October and are usually blue with a white throat. They can be quite large – up to 50 mm (2 in) long and
+              75 mm (3 in) across.</p>
           </div>
           <div class="centered">
-            
-            <h3>Plant Details</h3> 
-            <b>Sunlight</b>   :3-4 hours per day (20-50% shade)<br>
-              
-              <b>Soil</b>       :miracle-gro*cactus,palm&citrus potting mix,pH around 6-7.<br>
-              <b>Temperature</b>:122-158F (50-70 degree C)<br>
-              <b>Fertilizer</b> :Use a high-nitrogen fertilizer or top dress with alfalfa meal<br>
-              <b>Availability</b>   :Spring, Summer, Year Round<br>
-          <hr>
+
+            <h3>Plant Details</h3>
+            <b>Sunlight</b> :3-4 hours per day (20-50% shade)<br>
+
+            <b>Soil</b> :miracle-gro*cactus,palm&citrus potting mix,pH around 6-7.<br>
+            <b>Temperature</b>:122-158F (50-70 degree C)<br>
+            <b>Fertilizer</b> :Use a high-nitrogen fertilizer or top dress with alfalfa meal<br>
+            <b>Availability</b> :Spring, Summer, Year Round<br>
+            <hr>
             <h3>Key points</h3>
-              <li><b>Outdoor</b>: Direct sunlight</li>
-              <li><b>Height</b>: 12 inches Approx</li>
-              <li><b>Watering</b>: Once a day</li>
-              <li><b>Scientific Name</b>: Achimenes longiflora</li>
-              <li><b>Life Cycle</b>: Perennial</li>
-          <hr>
+            <li><b>Outdoor</b>: Direct sunlight</li>
+            <li><b>Height</b>: 12 inches Approx</li>
+            <li><b>Watering</b>: Once a day</li>
+            <li><b>Scientific Name</b>: Achimenes longiflora</li>
+            <li><b>Life Cycle</b>: Perennial</li>
+            <hr>
             <h3>Care instruction</h3>
-            <p>  
+            <p>
               <li>Water regularly. Do not let soil get dry.</li>
               <li>Provide six hours of sunlight on a daily basis.</li>
               <li>Add the fertiliser monthly to the soil.</li>
               <li>Be careful to avoid overwatering and prune your plants if neccessary.</li>
-              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking clean and healthy, and often stimulates the development of new flowers.</li>
-            </p>    
+              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking
+                clean and healthy, and often stimulates the development of new flowers.</li>
+            </p>
             <button (click)="showDialog3_0 = !showDialog3_0" class="btn btn-primary">Close</button>
-          </div>    
+          </div>
         </div>
       </div>
-      </app-dialog>
-  </div> 
+    </app-dialog>
+  </div>
 
-<!-- DONE -->
+  <!-- DONE -->
 
-    <div class="col-lg-3 col-md-6 col-sm-12 "  id="card1">
-               
-        <img class="card-img-top" id="mini-img" src="assets/flower/cflower2.jpg" >
-        <div class="card-body">
-          <h5 class="card-title" style="font-size: 25px;">Ixora Pink Draff </h5>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          <span class="heading"> Rating  : </span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star unchecked"></span>
-    <span class="fa fa-star unchecked "></span>
+  <div class="col-lg-3 col-md-6 col-sm-12 " id="card1">
 
-          <button (click)="showDialog31 = !showDialog31" class="btn btn-primary">Details</button>
-        </div>
+    <img class="card-img-top" id="mini-img" src="assets/flower/cflower2.jpg">
+    <div class="card-body">
+      <h5 class="card-title" style="font-size: 25px;">Ixora Pink Draff </h5>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <span class="heading"> Rating : </span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star unchecked"></span>
+      <span class="fa fa-star unchecked "></span>
 
-      
-      <app-dialog [(visible)]="showDialog31" title="Details Card" data-popup="width:300;height:250">
-        <div class="container">
-          <div class="split left">
-            <h2>Ixora Pink Draff</h2> 
+      <button (click)="showDialog31 = !showDialog31" class="btn btn-primary">Details</button>
+    </div>
+
+
+    <app-dialog [(visible)]="showDialog31" title="Details Card" data-popup="width:300;height:250">
+      <div class="container">
+        <div class="split left">
+          <h2>Ixora Pink Draff</h2>
           <img src="assets/flower/cflower2.jpg" class="slide" width="500" height="300" />
           <hr>
           <h3>Description</h3>
-            <p>Ixora is a tropical to semi-tropical evergreen shrub that is suitable for landscapes in USDA zones 9 and above. Ixora consists of tropical evergreen trees and shrubs and holds around 562 species. Though native to the tropical and subtropical areas throughout the world, its centre of diversity is in Tropical Asia. </p>
-            <p>Ixora plant care is negligible, which makes it useful as part of the low maintenance landscape. Annual spring pruning and fertilizing will enhance the plant’s health. Some diseases that are common are fungal but can be minimized by suspending overhead watering. </p>
-            
+          <p>Ixora is a tropical to semi-tropical evergreen shrub that is suitable for landscapes in USDA zones 9 and
+            above. Ixora consists of tropical evergreen trees and shrubs and holds around 562 species. Though native to
+            the tropical and subtropical areas throughout the world, its centre of diversity is in Tropical Asia. </p>
+          <p>Ixora plant care is negligible, which makes it useful as part of the low maintenance landscape. Annual
+            spring pruning and fertilizing will enhance the plant’s health. Some diseases that are common are fungal but
+            can be minimized by suspending overhead watering. </p>
+
         </div>
         <div class="split right">
           <div class="responsive">
-            <h2>Ixora Pink Draff</h2> 
+            <h2>Ixora Pink Draff</h2>
             <img src="assets/flower/cflower2.jpg" class="slide" width="500" height="300" />
             <h3>Description</h3>
-            <p>Ixora is a tropical to semi-tropical evergreen shrub that is suitable for landscapes in USDA zones 9 and above. Ixora consists of tropical evergreen trees and shrubs and holds around 562 species. Though native to the tropical and subtropical areas throughout the world, its centre of diversity is in Tropical Asia. </p>
-            <p>Ixora plant care is negligible, which makes it useful as part of the low maintenance landscape. Annual spring pruning and fertilizing will enhance the plant’s health. Some diseases that are common are fungal but can be minimized by suspending overhead watering. </p>
+            <p>Ixora is a tropical to semi-tropical evergreen shrub that is suitable for landscapes in USDA zones 9 and
+              above. Ixora consists of tropical evergreen trees and shrubs and holds around 562 species. Though native
+              to the tropical and subtropical areas throughout the world, its centre of diversity is in Tropical Asia.
+            </p>
+            <p>Ixora plant care is negligible, which makes it useful as part of the low maintenance landscape. Annual
+              spring pruning and fertilizing will enhance the plant’s health. Some diseases that are common are fungal
+              but can be minimized by suspending overhead watering. </p>
           </div>
           <div class="centered">
-            
-            <h3>Plant Details</h3> 
-              <b>Sunlight</b>   :3-4 hours per day<br> 
-              <b>Soil</b>       :pH-5. At planting, mix in 1/3 organic matter such as compost, well-rotted manure, or peat moss. <br>
-              <b>Temperature</b>:Temperature is critical on the low end of the scale.<br>
-              <b>Fertilizer</b> :30-10-10 commercial fertilizer mix is ​​a good choice<br>
-              <b>Moisture </b>   :Staying on the tropical theme, this evergreen shrub prefers moist soils.
-          <hr>
-            <h3>Key points</h3>
-              <li><b>Outdoor</b>: Direct sunlight</li>
-              <li><b>Height</b>: 4 to 6 ft</li>
-              <li><b>Watering</b>: Once a day</li>
-              <li><b>Family</b>: Rubiaceae</li>
-          <hr>
-            <h3>Care instruction</h3>
-            <p>  
-              <li>Water regularly. Do not let soil get dry.</li>
-              <li>Provide six hours of sunlight on a daily basis.</li>
-              <li>Add the fertiliser monthly to the soil.</li>
-              <li>Be careful to avoid overwatering and prune your plants if neccessary.</li>
-              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking clean and healthy, and often stimulates the development of new flowers.</li>
-            </p>    
-            <button (click)="showDialog31 = !showDialog31" class="btn btn-primary">Close</button>
-          </div>    
-        </div>
-      </div>
-        </app-dialog>
 
-    </div> 
-    
-<!-- DONE -->
-
-    <div class="col-lg-3 col-md-6 col-sm-12"  id="card1">
-               
-        <img class="card-img-top" id="mini-img" src="assets/flower/cflower3.jpg" >
-        <div class="card-body">
-          <h5 class="card-title" style="font-size: 25px;"> Peace Lily Golden Touch</h5>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          <span class="heading"> Rating  : </span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star-half-full checked "></span>
-
-          <button (click)="showDialog32 = !showDialog32" class="btn btn-primary">Details</button>
-        </div>
-
-      <app-dialog [(visible)]="showDialog32" title="Details Card" data-popup="width:300;height:250">
-        <div class="container">
-          <div class="split left">
-            <h2>Peace Lily Golden Touch</h2> 
-          <img src="assets/flower/cflower3.jpg" class="slide" width="500" height="300" />
-          <hr>
-          <h3>Description</h3>
-            <p>Peace lilies are tropical species and hybrid from the Spathiphyllum genus that are a favorite flowering houseplant.Peace lilies are not true lilies (Lilium spp.) at all, but rather a member of the Araceae family. Its flowers resemble those of the calla lily (both plants belong to the same family) and is the reason for its name. The showy part of the flower features a white, hoodlike sheath (known as a spathe) which resembles a white flag of surrender.  </p>
-            <p>There are a wide variety of sizes and types of peace lilies. Most serve as floor plants since they can reach three feet tall and grow wide with big, bold leaves. Mauna loa supreme (a Spathiphyllum hybrid) is the standard midsize type. It grows up to four feet tall and features bronze-green foliage with an abundance of large, cupped spathes.
-
-              It finally got the recognition it deserves from the general public after NASA put it on its list of “Top Ten Household Air Cleaning Plants.” This tropical shade-loving plant helps cleanse the air we breathe. While we all appreciate cleaner, oxygenated air, it’s also the easy peace lily care, resiliency and forgiving nature that makes them such popular houseplants.</p>
-            
-        </div>
-        <div class="split right">
-          <div class="responsive">
-            <h2>Peace Lily Golden Touch</h2> 
-            <img src="assets/flower/cflower3.jpg" class="slide" width="500" height="300" />
-            <h3>Description</h3>
-            <p>Peace lilies are tropical species and hybrid from the Spathiphyllum genus that are a favorite flowering houseplant.Peace lilies are not true lilies (Lilium spp.) at all, but rather a member of the Araceae family. Its flowers resemble those of the calla lily (both plants belong to the same family) and is the reason for its name. The showy part of the flower features a white, hoodlike sheath (known as a spathe) which resembles a white flag of surrender.  </p>
-            <p>There are a wide variety of sizes and types of peace lilies. Most serve as floor plants since they can reach three feet tall and grow wide with big, bold leaves. Mauna loa supreme (a Spathiphyllum hybrid) is the standard midsize type. It grows up to four feet tall and features bronze-green foliage with an abundance of large, cupped spathes.
-
-              It finally got the recognition it deserves from the general public after NASA put it on its list of “Top Ten Household Air Cleaning Plants.” This tropical shade-loving plant helps cleanse the air we breathe. While we all appreciate cleaner, oxygenated air, it’s also the easy peace lily care, resiliency and forgiving nature that makes them such popular houseplants.</p>
-          </div>
-          <div class="centered">
-            
-            <h3>Plant Details</h3> 
-            <b>Sunlight</b>   :Peace lilies prefer light partial shade, and can tolerate fluorescent lights. <br>
-              
-              <b>Soil</b>       :Moist but well-drained .the soil ph  is acidic<br>
-              <b>Temperature</b>:65-85F (18-29 degree C)<br>
-              <b>Fertilizer</b> :Look for a product with a balanced ratio, such as 20-20-20, diluted to one-half or one-quarter strength. <br>
-              <b>Note </b>      :Peace lily plants are considered toxic to pets1 and humans.2
-          <hr>
-            <h3>Key points</h3>
-              <li><b>Outdoor</b>: Direct sunlight</li>
-              <li><b>Height</b>: : 1–3 ft. tall; up to 6 feet tall outdoors</li>
-              <li><b>Watering</b>: Once a day</li>
-              <li><b>Scientific Name</b>: Spathiphyllum </li>
-              <li><b>Family</b>: Araceae</li>
-          <hr>
-            <h3>Care instruction</h3>
-            <p>  
-              <li>Water regularly. Do not let soil get dry.</li>
-              <li>Provide six hours of sunlight on a daily basis.</li>
-              <li>Add the fertiliser monthly to the soil.</li>
-              <li>Be careful to avoid overwatering and prune your plants if neccessary.</li>
-              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking clean and healthy, and often stimulates the development of new flowers.</li>
-            </p>    
-            <button (click)="showDialog32 = !showDialog32" class="btn btn-primary">Close</button>
-          </div>    
-        </div>
-      </div>
-       </app-dialog>
-
-    </div>   
-<!-- DONE -->
-
-    <div class="col-lg-3 col-md-6 col-sm-12"  id="card1">
-               
-        <img class="card-img-top" id="mini-img" src="assets/flower/CFLOWER4.jpg" >
-        <div class="card-body">
-          <h5 class="card-title" style="font-size: 25px;"> Hibiscus Plant</h5>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          <span class="heading"> Rating  : </span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star unchecked "></span>
-
-          <button (click)="showDialog33 = !showDialog33" class="btn btn-primary">Details</button>
-        </div>
-
-        
-
-      <app-dialog [(visible)]="showDialog33" title="Details Card" data-popup="width:300;height:250">
-        <div class="container">
-          <div class="split left">
-            <h2>Hibiscus Plant</h2> 
-          <img src="assets/flower/CFLOWER4.jpg" class="slide" width="500" height="300" />
-          <hr>
-          <h3>Description</h3>
-            <p>Hibiscus plants are tropical shrubs known for their large, colorful blooms. They enjoy warm temperatures and usually will not survive a frost -- if your climate is on the cool side, grow hibiscus plants indoors in containers.  </p>
-            <p>It is widely cultivated in tropical and subtropical regions, but is not known in the wild, so that its native distribution is uncertain. An origin in some part of tropical Asia is likely.</p>
-            
-        </div>
-        <div class="split right">
-          <div class="responsive">
-            <h2>Hibiscus Plant</h2> 
-            <img src="assets/flower/CFLOWER4.jpg" class="slide" width="500" height="300" />
-            <h3>Description</h3>
-            <p>Hibiscus plants are tropical shrubs known for their large, colorful blooms. They enjoy warm temperatures and usually will not survive a frost -- if your climate is on the cool side, grow hibiscus plants indoors in containers.  </p>
-            <p>It is widely cultivated in tropical and subtropical regions, but is not known in the wild, so that its native distribution is uncertain. An origin in some part of tropical Asia is likely.</p>
-            </div>
-          <div class="centered">
-            
-            <h3>Plant Details</h3> 
-            <b>Sunlight</b>   :3-4 hours per day<br>
-              
-              <b>Soil</b>       :prefers sandy loam but not heavy soils.<br>
-              <b>Temperature</b>:60°F – 90°F or 16°C – 32°C <br>
-              <b>Fertilizer</b> :Hibiscus Plant Food 10-4-12 4 Lbs.(products that are high in potassium and low in phosphorus). <br>
-              <b>Feature </b>   :The flowers of Hibiscus rosa-sinensis are edible and are used in salads 
-          <hr>
-            <h3>Key points</h3>
-              <li><b>Outdoor</b>: Direct sunlight</li>
-              <li><b>Height</b>: 1.5ft Approx</li>
-              <li><b>Watering</b>: Once a day</li>
-              <li><b>Scientific Name</b>: Hibiscus rosa-sinensis</li>
-              <li><b>Family</b>: Malvaceae</li>
-          <hr>
-            <h3>Care instruction</h3>
-            <p>  
-              <li>Water regularly. Do not let soil get dry.</li>
-              <li> Add Worm Castings to the Soil</li>
-              <li>Add the fertiliser monthly to the soil.</li>
-              <li>Be careful to avoid overwatering and prune your plants if neccessary.</li>
-              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking clean and healthy, and often stimulates the development of new flowers.</li>
-            </p>    
-            <button (click)="showDialog33 = !showDialog33" class="btn btn-primary">Close</button>
-          </div>    
-        </div>
-      </div>
-          </app-dialog>
-
-    </div>  
- <!-- DONE -->
-
-    <div class="col-lg-3 col-md-6 col-sm-12"  id="card1">
-               
-        <img class="card-img-top" id="mini-img" src="assets/flower/cflower5.jpg" >
-        <div class="card-body">
-          <h5 class="card-title" style="font-size: 25px;"> Ixora Flowering Plant </h5>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          <span class="heading"> Rating  : </span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star unchecked"></span>
-    <span class="fa fa-star unchecked "></span>
-
-
-          <button (click)="showDialog34 = !showDialog34" class="btn btn-primary">Details</button>
-        </div>
-
-        
-
-      <app-dialog [(visible)]="showDialog34" title="Details Card" data-popup="width:300;height:250">
-        <div class="container">
-          <div class="split left">
-            <h2>Ixora Flowering Plant</h2> 
-          <img src="assets/flower/cflower5.jpg" class="slide" width="500" height="300" />
-          <hr>
-          <h3>Description</h3>
-          <p>Ixora is a tropical to semi-tropical evergreen shrub that is suitable for landscapes in USDA zones 9 and above. Ixora consists of tropical evergreen trees and shrubs and holds around 562 species. Though native to the tropical and subtropical areas throughout the world, its centre of diversity is in Tropical Asia. </p>
-          <p>Ixora plant care is negligible, which makes it useful as part of the low maintenance landscape. Annual spring pruning and fertilizing will enhance the plant’s health. Some diseases that are common are fungal but can be minimized by suspending overhead watering. </p>
-          
-      </div>
-      <div class="split right">
-        <div class="responsive">
-          <h2>Ixora Flowering Plant</h2> 
-          <img src="assets/flower/cflower2.jpg" class="slide" width="500" height="300" />
-          <h3>Description</h3>
-          <p>Ixora is a tropical to semi-tropical evergreen shrub that is suitable for landscapes in USDA zones 9 and above. Ixora consists of tropical evergreen trees and shrubs and holds around 562 species. Though native to the tropical and subtropical areas throughout the world, its centre of diversity is in Tropical Asia. </p>
-          <p>Ixora plant care is negligible, which makes it useful as part of the low maintenance landscape. Annual spring pruning and fertilizing will enhance the plant’s health. Some diseases that are common are fungal but can be minimized by suspending overhead watering. </p>
-        </div>
-        <div class="centered">
-          
-          <h3>Plant Details</h3> 
-            <b>Sunlight</b>   :3-4 hours per day<br> 
-            <b>Soil</b>       :pH-5. At planting, mix in 1/3 organic matter such as compost, well-rotted manure, or peat moss. <br>
+            <h3>Plant Details</h3>
+            <b>Sunlight</b> :3-4 hours per day<br>
+            <b>Soil</b> :pH-5. At planting, mix in 1/3 organic matter such as compost, well-rotted manure, or peat moss.
+            <br>
             <b>Temperature</b>:Temperature is critical on the low end of the scale.<br>
             <b>Fertilizer</b> :30-10-10 commercial fertilizer mix is ​​a good choice<br>
-            <b>Moisture </b>   :Staying on the tropical theme, this evergreen shrub prefers moist soils.
-        <hr>
-          <h3>Key points</h3>
+            <b>Moisture </b> :Staying on the tropical theme, this evergreen shrub prefers moist soils.
+            <hr>
+            <h3>Key points</h3>
             <li><b>Outdoor</b>: Direct sunlight</li>
             <li><b>Height</b>: 4 to 6 ft</li>
             <li><b>Watering</b>: Once a day</li>
             <li><b>Family</b>: Rubiaceae</li>
-        <hr>
-          <h3>Care instruction</h3>
-          <p>  
-            <li>Water regularly. Do not let soil get dry.</li>
-            <li>Provide six hours of sunlight on a daily basis.</li>
-            <li>Add the fertiliser monthly to the soil.</li>
-            <li>Be careful to avoid overwatering and prune your plants if neccessary.</li>
-            <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking clean and healthy, and often stimulates the development of new flowers.</li>
-          </p>    
-            <button (click)="showDialog34 = !showDialog34" class="btn btn-primary">Close</button>
-          </div>    
+            <hr>
+            <h3>Care instruction</h3>
+            <p>
+              <li>Water regularly. Do not let soil get dry.</li>
+              <li>Provide six hours of sunlight on a daily basis.</li>
+              <li>Add the fertiliser monthly to the soil.</li>
+              <li>Be careful to avoid overwatering and prune your plants if neccessary.</li>
+              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking
+                clean and healthy, and often stimulates the development of new flowers.</li>
+            </p>
+            <button (click)="showDialog31 = !showDialog31" class="btn btn-primary">Close</button>
+          </div>
         </div>
       </div>
-       </app-dialog>
+    </app-dialog>
 
-    </div> 
- <!-- DONE -->
+  </div>
 
-    <div class="col-lg-3 col-md-6 col-sm-12"  id="card1">
-               
-        <img class="card-img-top" id="mini-img" src="assets/flower/cflower6.jpg" >
-        <div class="card-body">
-          <h5 class="card-title" style="font-size: 25px;"> White Rose Plant </h5>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          <span class="heading"> Rating  : </span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star-half-full checked "></span>
+  <!-- DONE -->
 
-          <button (click)="showDialog35 = !showDialog35" class="btn btn-primary">Details</button>
+  <div class="col-lg-3 col-md-6 col-sm-12" id="card1">
+
+    <img class="card-img-top" id="mini-img" src="assets/flower/cflower3.jpg">
+    <div class="card-body">
+      <h5 class="card-title" style="font-size: 25px;"> Peace Lily Golden Touch</h5>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <span class="heading"> Rating : </span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star-half-full checked "></span>
+
+      <button (click)="showDialog32 = !showDialog32" class="btn btn-primary">Details</button>
+    </div>
+
+    <app-dialog [(visible)]="showDialog32" title="Details Card" data-popup="width:300;height:250">
+      <div class="container">
+        <div class="split left">
+          <h2>Peace Lily Golden Touch</h2>
+          <img src="assets/flower/cflower3.jpg" class="slide" width="500" height="300" />
+          <hr>
+          <h3>Description</h3>
+          <p>Peace lilies are tropical species and hybrid from the Spathiphyllum genus that are a favorite flowering
+            houseplant.Peace lilies are not true lilies (Lilium spp.) at all, but rather a member of the Araceae family.
+            Its flowers resemble those of the calla lily (both plants belong to the same family) and is the reason for
+            its name. The showy part of the flower features a white, hoodlike sheath (known as a spathe) which resembles
+            a white flag of surrender. </p>
+          <p>There are a wide variety of sizes and types of peace lilies. Most serve as floor plants since they can
+            reach three feet tall and grow wide with big, bold leaves. Mauna loa supreme (a Spathiphyllum hybrid) is the
+            standard midsize type. It grows up to four feet tall and features bronze-green foliage with an abundance of
+            large, cupped spathes.
+
+            It finally got the recognition it deserves from the general public after NASA put it on its list of “Top Ten
+            Household Air Cleaning Plants.” This tropical shade-loving plant helps cleanse the air we breathe. While we
+            all appreciate cleaner, oxygenated air, it’s also the easy peace lily care, resiliency and forgiving nature
+            that makes them such popular houseplants.</p>
+
         </div>
+        <div class="split right">
+          <div class="responsive">
+            <h2>Peace Lily Golden Touch</h2>
+            <img src="assets/flower/cflower3.jpg" class="slide" width="500" height="300" />
+            <h3>Description</h3>
+            <p>Peace lilies are tropical species and hybrid from the Spathiphyllum genus that are a favorite flowering
+              houseplant.Peace lilies are not true lilies (Lilium spp.) at all, but rather a member of the Araceae
+              family. Its flowers resemble those of the calla lily (both plants belong to the same family) and is the
+              reason for its name. The showy part of the flower features a white, hoodlike sheath (known as a spathe)
+              which resembles a white flag of surrender. </p>
+            <p>There are a wide variety of sizes and types of peace lilies. Most serve as floor plants since they can
+              reach three feet tall and grow wide with big, bold leaves. Mauna loa supreme (a Spathiphyllum hybrid) is
+              the standard midsize type. It grows up to four feet tall and features bronze-green foliage with an
+              abundance of large, cupped spathes.
 
-      <app-dialog [(visible)]="showDialog35" title="Details Card" data-popup="width:300;height:250">
-        <div class="container">
-          <div class="split left">
-            <h2>White Rose Plant </h2> 
+              It finally got the recognition it deserves from the general public after NASA put it on its list of “Top
+              Ten Household Air Cleaning Plants.” This tropical shade-loving plant helps cleanse the air we breathe.
+              While we all appreciate cleaner, oxygenated air, it’s also the easy peace lily care, resiliency and
+              forgiving nature that makes them such popular houseplants.</p>
+          </div>
+          <div class="centered">
+
+            <h3>Plant Details</h3>
+            <b>Sunlight</b> :Peace lilies prefer light partial shade, and can tolerate fluorescent lights. <br>
+
+            <b>Soil</b> :Moist but well-drained .the soil ph is acidic<br>
+            <b>Temperature</b>:65-85F (18-29 degree C)<br>
+            <b>Fertilizer</b> :Look for a product with a balanced ratio, such as 20-20-20, diluted to one-half or
+            one-quarter strength. <br>
+            <b>Note </b> :Peace lily plants are considered toxic to pets1 and humans.2
+            <hr>
+            <h3>Key points</h3>
+            <li><b>Outdoor</b>: Direct sunlight</li>
+            <li><b>Height</b>: : 1–3 ft. tall; up to 6 feet tall outdoors</li>
+            <li><b>Watering</b>: Once a day</li>
+            <li><b>Scientific Name</b>: Spathiphyllum </li>
+            <li><b>Family</b>: Araceae</li>
+            <hr>
+            <h3>Care instruction</h3>
+            <p>
+              <li>Water regularly. Do not let soil get dry.</li>
+              <li>Provide six hours of sunlight on a daily basis.</li>
+              <li>Add the fertiliser monthly to the soil.</li>
+              <li>Be careful to avoid overwatering and prune your plants if neccessary.</li>
+              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking
+                clean and healthy, and often stimulates the development of new flowers.</li>
+            </p>
+            <button (click)="showDialog32 = !showDialog32" class="btn btn-primary">Close</button>
+          </div>
+        </div>
+      </div>
+    </app-dialog>
+
+  </div>
+  <!-- DONE -->
+
+  <div class="col-lg-3 col-md-6 col-sm-12" id="card1">
+
+    <img class="card-img-top" id="mini-img" src="assets/flower/CFLOWER4.jpg">
+    <div class="card-body">
+      <h5 class="card-title" style="font-size: 25px;"> Hibiscus Plant</h5>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <span class="heading"> Rating : </span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star unchecked "></span>
+
+      <button (click)="showDialog33 = !showDialog33" class="btn btn-primary">Details</button>
+    </div>
+
+
+
+    <app-dialog [(visible)]="showDialog33" title="Details Card" data-popup="width:300;height:250">
+      <div class="container">
+        <div class="split left">
+          <h2>Hibiscus Plant</h2>
+          <img src="assets/flower/CFLOWER4.jpg" class="slide" width="500" height="300" />
+          <hr>
+          <h3>Description</h3>
+          <p>Hibiscus plants are tropical shrubs known for their large, colorful blooms. They enjoy warm temperatures
+            and usually will not survive a frost -- if your climate is on the cool side, grow hibiscus plants indoors in
+            containers. </p>
+          <p>It is widely cultivated in tropical and subtropical regions, but is not known in the wild, so that its
+            native distribution is uncertain. An origin in some part of tropical Asia is likely.</p>
+
+        </div>
+        <div class="split right">
+          <div class="responsive">
+            <h2>Hibiscus Plant</h2>
+            <img src="assets/flower/CFLOWER4.jpg" class="slide" width="500" height="300" />
+            <h3>Description</h3>
+            <p>Hibiscus plants are tropical shrubs known for their large, colorful blooms. They enjoy warm temperatures
+              and usually will not survive a frost -- if your climate is on the cool side, grow hibiscus plants indoors
+              in containers. </p>
+            <p>It is widely cultivated in tropical and subtropical regions, but is not known in the wild, so that its
+              native distribution is uncertain. An origin in some part of tropical Asia is likely.</p>
+          </div>
+          <div class="centered">
+
+            <h3>Plant Details</h3>
+            <b>Sunlight</b> :3-4 hours per day<br>
+
+            <b>Soil</b> :prefers sandy loam but not heavy soils.<br>
+            <b>Temperature</b>:60°F – 90°F or 16°C – 32°C <br>
+            <b>Fertilizer</b> :Hibiscus Plant Food 10-4-12 4 Lbs.(products that are high in potassium and low in
+            phosphorus). <br>
+            <b>Feature </b> :The flowers of Hibiscus rosa-sinensis are edible and are used in salads
+            <hr>
+            <h3>Key points</h3>
+            <li><b>Outdoor</b>: Direct sunlight</li>
+            <li><b>Height</b>: 1.5ft Approx</li>
+            <li><b>Watering</b>: Once a day</li>
+            <li><b>Scientific Name</b>: Hibiscus rosa-sinensis</li>
+            <li><b>Family</b>: Malvaceae</li>
+            <hr>
+            <h3>Care instruction</h3>
+            <p>
+              <li>Water regularly. Do not let soil get dry.</li>
+              <li> Add Worm Castings to the Soil</li>
+              <li>Add the fertiliser monthly to the soil.</li>
+              <li>Be careful to avoid overwatering and prune your plants if neccessary.</li>
+              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking
+                clean and healthy, and often stimulates the development of new flowers.</li>
+            </p>
+            <button (click)="showDialog33 = !showDialog33" class="btn btn-primary">Close</button>
+          </div>
+        </div>
+      </div>
+    </app-dialog>
+
+  </div>
+  <!-- DONE -->
+
+  <div class="col-lg-3 col-md-6 col-sm-12" id="card1">
+
+    <img class="card-img-top" id="mini-img" src="assets/flower/cflower5.jpg">
+    <div class="card-body">
+      <h5 class="card-title" style="font-size: 25px;"> Ixora Flowering Plant </h5>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <span class="heading"> Rating : </span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star unchecked"></span>
+      <span class="fa fa-star unchecked "></span>
+
+
+      <button (click)="showDialog34 = !showDialog34" class="btn btn-primary">Details</button>
+    </div>
+
+
+
+    <app-dialog [(visible)]="showDialog34" title="Details Card" data-popup="width:300;height:250">
+      <div class="container">
+        <div class="split left">
+          <h2>Ixora Flowering Plant</h2>
+          <img src="assets/flower/cflower5.jpg" class="slide" width="500" height="300" />
+          <hr>
+          <h3>Description</h3>
+          <p>Ixora is a tropical to semi-tropical evergreen shrub that is suitable for landscapes in USDA zones 9 and
+            above. Ixora consists of tropical evergreen trees and shrubs and holds around 562 species. Though native to
+            the tropical and subtropical areas throughout the world, its centre of diversity is in Tropical Asia. </p>
+          <p>Ixora plant care is negligible, which makes it useful as part of the low maintenance landscape. Annual
+            spring pruning and fertilizing will enhance the plant’s health. Some diseases that are common are fungal but
+            can be minimized by suspending overhead watering. </p>
+
+        </div>
+        <div class="split right">
+          <div class="responsive">
+            <h2>Ixora Flowering Plant</h2>
+            <img src="assets/flower/cflower2.jpg" class="slide" width="500" height="300" />
+            <h3>Description</h3>
+            <p>Ixora is a tropical to semi-tropical evergreen shrub that is suitable for landscapes in USDA zones 9 and
+              above. Ixora consists of tropical evergreen trees and shrubs and holds around 562 species. Though native
+              to the tropical and subtropical areas throughout the world, its centre of diversity is in Tropical Asia.
+            </p>
+            <p>Ixora plant care is negligible, which makes it useful as part of the low maintenance landscape. Annual
+              spring pruning and fertilizing will enhance the plant’s health. Some diseases that are common are fungal
+              but can be minimized by suspending overhead watering. </p>
+          </div>
+          <div class="centered">
+
+            <h3>Plant Details</h3>
+            <b>Sunlight</b> :3-4 hours per day<br>
+            <b>Soil</b> :pH-5. At planting, mix in 1/3 organic matter such as compost, well-rotted manure, or peat moss.
+            <br>
+            <b>Temperature</b>:Temperature is critical on the low end of the scale.<br>
+            <b>Fertilizer</b> :30-10-10 commercial fertilizer mix is ​​a good choice<br>
+            <b>Moisture </b> :Staying on the tropical theme, this evergreen shrub prefers moist soils.
+            <hr>
+            <h3>Key points</h3>
+            <li><b>Outdoor</b>: Direct sunlight</li>
+            <li><b>Height</b>: 4 to 6 ft</li>
+            <li><b>Watering</b>: Once a day</li>
+            <li><b>Family</b>: Rubiaceae</li>
+            <hr>
+            <h3>Care instruction</h3>
+            <p>
+              <li>Water regularly. Do not let soil get dry.</li>
+              <li>Provide six hours of sunlight on a daily basis.</li>
+              <li>Add the fertiliser monthly to the soil.</li>
+              <li>Be careful to avoid overwatering and prune your plants if neccessary.</li>
+              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking
+                clean and healthy, and often stimulates the development of new flowers.</li>
+            </p>
+            <button (click)="showDialog34 = !showDialog34" class="btn btn-primary">Close</button>
+          </div>
+        </div>
+      </div>
+    </app-dialog>
+
+  </div>
+  <!-- DONE -->
+
+  <div class="col-lg-3 col-md-6 col-sm-12" id="card1">
+
+    <img class="card-img-top" id="mini-img" src="assets/flower/cflower6.jpg">
+    <div class="card-body">
+      <h5 class="card-title" style="font-size: 25px;"> White Rose Plant </h5>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <span class="heading"> Rating : </span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star-half-full checked "></span>
+
+      <button (click)="showDialog35 = !showDialog35" class="btn btn-primary">Details</button>
+    </div>
+
+    <app-dialog [(visible)]="showDialog35" title="Details Card" data-popup="width:300;height:250">
+      <div class="container">
+        <div class="split left">
+          <h2>White Rose Plant </h2>
           <img src="assets/flower/cflower6.jpg" class="slide" width="500" height="300" />
           <hr>
           <h3>Description</h3>
-            <p>The white rose of York, is a hybrid rose of unknown parentage that has been cultivated in Europe since ancient times. </p>
-            <p>It may have originally been grown mainly for the sweet scent of the flowers, but is now also used as a winter-hardy garden shrub. Cultivated forms have white or pink flowers, and most have many petals. Hybrid cultivars have also been produced with red or yellow flowers.</p>
-            
+          <p>The white rose of York, is a hybrid rose of unknown parentage that has been cultivated in Europe since
+            ancient times. </p>
+          <p>It may have originally been grown mainly for the sweet scent of the flowers, but is now also used as a
+            winter-hardy garden shrub. Cultivated forms have white or pink flowers, and most have many petals. Hybrid
+            cultivars have also been produced with red or yellow flowers.</p>
+
         </div>
         <div class="split right">
           <div class="responsive">
-            <h2>White Rose Plant </h2> 
+            <h2>White Rose Plant </h2>
             <img src="assets/flower/cflower6.jpg" class="slide" width="500" height="300" />
             <h3>Description</h3>
-            <p>The white rose of York, is a hybrid rose of unknown parentage that has been cultivated in Europe since ancient times. </p>
-            <p>It may have originally been grown mainly for the sweet scent of the flowers, but is now also used as a winter-hardy garden shrub. Cultivated forms have white or pink flowers, and most have many petals. Hybrid cultivars have also been produced with red or yellow flowers.</p>
-            </div>
+            <p>The white rose of York, is a hybrid rose of unknown parentage that has been cultivated in Europe since
+              ancient times. </p>
+            <p>It may have originally been grown mainly for the sweet scent of the flowers, but is now also used as a
+              winter-hardy garden shrub. Cultivated forms have white or pink flowers, and most have many petals. Hybrid
+              cultivars have also been produced with red or yellow flowers.</p>
+          </div>
           <div class="centered">
-            
-            <h3>Plant Details</h3> 
-            <b>Sunlight</b>   :3-4 hours per day<br>
-              
-              <b>Soil</b>       :A loam soil is ideal.<br>
-              <b>Temperature</b>:a minimum of 15°C and maximum of 28°C.<br>
-              <b>Fertilizer</b> :Use a high-nitrogen fertilizer or top dress with alfalfa meal along with epsom salts.Add a slow-release fertilizer when shoots are 4 to 5 inches long.(Down to Earth Organic Rose & Flower Fertilizer).<br>
-              <b>Feature </b>   :Their petals are edible and rose water (made from soaking the petals in water) is often added to jellies or jams, or is used as flavoring in Indian and Chinese dishes. 
-          <hr>
+
+            <h3>Plant Details</h3>
+            <b>Sunlight</b> :3-4 hours per day<br>
+
+            <b>Soil</b> :A loam soil is ideal.<br>
+            <b>Temperature</b>:a minimum of 15°C and maximum of 28°C.<br>
+            <b>Fertilizer</b> :Use a high-nitrogen fertilizer or top dress with alfalfa meal along with epsom salts.Add
+            a slow-release fertilizer when shoots are 4 to 5 inches long.(Down to Earth Organic Rose & Flower
+            Fertilizer).<br>
+            <b>Feature </b> :Their petals are edible and rose water (made from soaking the petals in water) is often
+            added to jellies or jams, or is used as flavoring in Indian and Chinese dishes.
+            <hr>
             <h3>Key points</h3>
-              <li><b>Outdoor</b>: Direct sunlight</li>
-              <li><b>Height</b>: 1.5ft Approx</li>
-              <li><b>Watering</b>: Once a day</li>
-              <li><b>Scientific Name</b>: Rosa × alba</li>
-              <li><b>Family</b>: Rosaceae</li>
-          <hr>
+            <li><b>Outdoor</b>: Direct sunlight</li>
+            <li><b>Height</b>: 1.5ft Approx</li>
+            <li><b>Watering</b>: Once a day</li>
+            <li><b>Scientific Name</b>: Rosa × alba</li>
+            <li><b>Family</b>: Rosaceae</li>
+            <hr>
             <h3>Care instruction</h3>
-            <p>  
+            <p>
               <li>Water regularly. Do not let soil get dry.</li>
               <li>Provide six hours of sunlight on a daily basis.</li>
               <li>Add the fertiliser monthly to the soil.</li>
               <li>Be careful to avoid overwatering and prune your plants if neccessary.</li>
-              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking clean and healthy, and often stimulates the development of new flowers.</li>
-            </p>    
+              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking
+                clean and healthy, and often stimulates the development of new flowers.</li>
+            </p>
             <button (click)="showDialog35 = !showDialog35" class="btn btn-primary">Close</button>
-          </div>    
+          </div>
         </div>
       </div>
-          </app-dialog>
+    </app-dialog>
 
-    </div> 
- <!-- DONE -->
+  </div>
+  <!-- DONE -->
 
-    <div class="col-lg-3 col-md-6 col-sm-12"  id="card1">
-               
-        <img class="card-img-top" id="mini-img" src="assets/flower/cflower7.jpg" >
-        <div class="card-body">
-          <h5 class="card-title" style="font-size: 25px;"> Silver Aglaonema Plant</h5>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          <span class="heading"> Rating  : </span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star unchecked "></span>
+  <div class="col-lg-3 col-md-6 col-sm-12" id="card1">
+
+    <img class="card-img-top" id="mini-img" src="assets/flower/cflower7.jpg">
+    <div class="card-body">
+      <h5 class="card-title" style="font-size: 25px;"> Silver Aglaonema Plant</h5>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <span class="heading"> Rating : </span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star unchecked "></span>
 
 
-          <button (click)="showDialog36 = !showDialog36" class="btn btn-primary">Details</button>
-        </div>
+      <button (click)="showDialog36 = !showDialog36" class="btn btn-primary">Details</button>
+    </div>
 
-      <app-dialog [(visible)]="showDialog36" title="Details Card" data-popup="width:300;height:250">
-        <div class="container">
-          <div class="split left">
-            <h2>Silver Aglaonema Plant</h2> 
+    <app-dialog [(visible)]="showDialog36" title="Details Card" data-popup="width:300;height:250">
+      <div class="container">
+        <div class="split left">
+          <h2>Silver Aglaonema Plant</h2>
           <img src="assets/flower/cflower7.jpg" class="slide" width="500" height="300" />
           <hr>
           <h3>Description</h3>
-            <p>Aglaonema is a genus of flowering plants in the arum family, Araceae. They are native to tropical and subtropical regions of Asia and New Guinea. They are known commonly as Chinese evergreens. </p>
-            <p>These are evergreen perennials with stems growing erect or decumbent and creeping. Stems that grow along the ground may root at the nodes. There is generally a crown of wide leaf blades which in wild species are often variegated with silver and green coloration. </p>
-            
+          <p>Aglaonema is a genus of flowering plants in the arum family, Araceae. They are native to tropical and
+            subtropical regions of Asia and New Guinea. They are known commonly as Chinese evergreens. </p>
+          <p>These are evergreen perennials with stems growing erect or decumbent and creeping. Stems that grow along
+            the ground may root at the nodes. There is generally a crown of wide leaf blades which in wild species are
+            often variegated with silver and green coloration. </p>
+
         </div>
         <div class="split right">
           <div class="responsive">
-            <h2>Silver Aglaonema Plant</h2> 
+            <h2>Silver Aglaonema Plant</h2>
             <img src="assets/flower/cflower7.jpg" class="slide" width="500" height="300" />
             <h3>Description</h3>
-            <p>Aglaonema is a genus of flowering plants in the arum family, Araceae. They are native to tropical and subtropical regions of Asia and New Guinea. They are known commonly as Chinese evergreens. </p>
-            <p>These are evergreen perennials with stems growing erect or decumbent and creeping. Stems that grow along the ground may root at the nodes. There is generally a crown of wide leaf blades which in wild species are often variegated with silver and green coloration. </p>
-             </div>
+            <p>Aglaonema is a genus of flowering plants in the arum family, Araceae. They are native to tropical and
+              subtropical regions of Asia and New Guinea. They are known commonly as Chinese evergreens. </p>
+            <p>These are evergreen perennials with stems growing erect or decumbent and creeping. Stems that grow along
+              the ground may root at the nodes. There is generally a crown of wide leaf blades which in wild species are
+              often variegated with silver and green coloration. </p>
+          </div>
           <div class="centered">
-            
-            <h3>Plant Details</h3> 
-            <b>Sunlight</b>   :Aglaonemas do best in well-lit locations such as a window sill with eastern light exposure. <br>
-              
-              <b>Soil</b>       :Lightly-acidic soil in a range of 5.6-6.5 pH .<br>
-              <b>Temperature</b>:Cutlasses prefer temperatures in the 60’s and 70’s. Avoid cold drafts and sudden temperature changes.<br>
-              <b>Fertilizer</b> :using a half-strength balanced liquid houseplant fertilizer once a month in the spring and summer months.<br>
-              <b>Feature </b>   :Plants of the genus are native to humid, shady tropical forest habitat
-          <hr>
+
+            <h3>Plant Details</h3>
+            <b>Sunlight</b> :Aglaonemas do best in well-lit locations such as a window sill with eastern light exposure.
+            <br>
+
+            <b>Soil</b> :Lightly-acidic soil in a range of 5.6-6.5 pH .<br>
+            <b>Temperature</b>:Cutlasses prefer temperatures in the 60’s and 70’s. Avoid cold drafts and sudden
+            temperature changes.<br>
+            <b>Fertilizer</b> :using a half-strength balanced liquid houseplant fertilizer once a month in the spring
+            and summer months.<br>
+            <b>Feature </b> :Plants of the genus are native to humid, shady tropical forest habitat
+            <hr>
             <h3>Key points</h3>
-              <li><b>Outdoor</b>: Direct sunlight</li>
-              <li><b>Height</b>: 18 inch (46 cm) Approx</li>
-              <li><b>Watering</b>: Water your Aglaonema when the top 50% of the soil is dry.</li>
-              <li><b>Scientific Name</b>: Aglaonema 'Silver Queen'</li>
-              <li><b>Note</b>: Moderately toxic to pets and humans. Typically, ingestion will cause mouth and stomach irritation and possible vomiting.</li>
-          <hr>
+            <li><b>Outdoor</b>: Direct sunlight</li>
+            <li><b>Height</b>: 18 inch (46 cm) Approx</li>
+            <li><b>Watering</b>: Water your Aglaonema when the top 50% of the soil is dry.</li>
+            <li><b>Scientific Name</b>: Aglaonema 'Silver Queen'</li>
+            <li><b>Note</b>: Moderately toxic to pets and humans. Typically, ingestion will cause mouth and stomach
+              irritation and possible vomiting.</li>
+            <hr>
             <h3>Care instruction</h3>
-            <p>  
+            <p>
               <li>Water regularly. Do not let soil get dry.</li>
               <li>Provide six hours of sunlight on a daily basis.</li>
               <li>Add the fertiliser monthly to the soil.</li>
               <li>Be careful to avoid overwatering and prune your plants if neccessary.</li>
-              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking clean and healthy, and often stimulates the development of new flowers.</li>
-            </p>    
+              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking
+                clean and healthy, and often stimulates the development of new flowers.</li>
+            </p>
             <button (click)="showDialog36 = !showDialog36" class="btn btn-primary">Close</button>
-          </div>    
+          </div>
         </div>
       </div>
-          </app-dialog>
+    </app-dialog>
 
-    </div> 
- <!-- DONE -->
+  </div>
+  <!-- DONE -->
 
-    <div class="col-lg-3 col-md-6 col-sm-12"  id="card1">
-               
-        <img class="card-img-top" id="mini-img" src="assets/flower/cflower8.jpg" >
-        <div class="card-body">
-          <h5 class="card-title" style="font-size: 25px;"> Flowery Murraya Bonsai</h5>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          <span class="heading"> Rating  : </span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star unchecked "></span>
+  <div class="col-lg-3 col-md-6 col-sm-12" id="card1">
 
-          <button (click)="showDialog37 = !showDialog37" class="btn btn-primary">Details</button>
-        </div>
+    <img class="card-img-top" id="mini-img" src="assets/flower/cflower8.jpg">
+    <div class="card-body">
+      <h5 class="card-title" style="font-size: 25px;"> Flowery Murraya Bonsai</h5>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <span class="heading"> Rating : </span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star unchecked "></span>
 
-      <app-dialog [(visible)]="showDialog37" title="Details Card" data-popup="width:300;height:250">
-        <div class="container">
-          <div class="split left">
-            <h2>Flowery Murraya Bonsai</h2> 
+      <button (click)="showDialog37 = !showDialog37" class="btn btn-primary">Details</button>
+    </div>
+
+    <app-dialog [(visible)]="showDialog37" title="Details Card" data-popup="width:300;height:250">
+      <div class="container">
+        <div class="split left">
+          <h2>Flowery Murraya Bonsai</h2>
           <img src="assets/flower/cflower8.jpg" class="slide" width="500" height="300" />
           <hr>
           <h3>Description</h3>
-          <p>Flowery Murraya Bonsai, commonly known as orange jasmine, orange jessamine, china box or mock orange,[3] is a species of shrub or small tree in the family Rutaceae and is native to South Asia, Southeast Asia and Australia. </p>
-          <p>It has smooth bark, pinnate leaves with up to seven egg-shaped to elliptical leaflets, fragrant white or cream-coloured flowers and oval, orange-red berries containing hairy seeds.</p>
+          <p>Flowery Murraya Bonsai, commonly known as orange jasmine, orange jessamine, china box or mock orange,[3] is
+            a species of shrub or small tree in the family Rutaceae and is native to South Asia, Southeast Asia and
+            Australia. </p>
+          <p>It has smooth bark, pinnate leaves with up to seven egg-shaped to elliptical leaflets, fragrant white or
+            cream-coloured flowers and oval, orange-red berries containing hairy seeds.</p>
 
         </div>
         <div class="split right">
           <div class="responsive">
-            <h2>Flowery Murraya Bonsai</h2> 
+            <h2>Flowery Murraya Bonsai</h2>
             <img src="assets/flower/cflower8.jpg" class="slide" width="500" height="300" />
             <h3>Description</h3>
-            <p>Flowery Murraya Bonsai, commonly known as orange jasmine, orange jessamine, china box or mock orange,[3] is a species of shrub or small tree in the family Rutaceae and is native to South Asia, Southeast Asia and Australia. </p>
-            <p>It has smooth bark, pinnate leaves with up to seven egg-shaped to elliptical leaflets, fragrant white or cream-coloured flowers and oval, orange-red berries containing hairy seeds.</p>
+            <p>Flowery Murraya Bonsai, commonly known as orange jasmine, orange jessamine, china box or mock orange,[3]
+              is a species of shrub or small tree in the family Rutaceae and is native to South Asia, Southeast Asia and
+              Australia. </p>
+            <p>It has smooth bark, pinnate leaves with up to seven egg-shaped to elliptical leaflets, fragrant white or
+              cream-coloured flowers and oval, orange-red berries containing hairy seeds.</p>
           </div>
           <div class="centered">
-            
-            <h3>Plant Details</h3> 
-            <b>Sunlight</b>   :3-4 hours per day<br>
-              
-              <b>Soil</b>       :Use bonsai soil or a mix of loam, peat moss, and sand at a ratio of 2:2:1..<br>
-              <b>Temperature</b>: High, tropical temperatures<br>
-              <b>Fertilizer</b> :Apply a liquid bonsai fertilizer every two weeks during the growing season; every four to six weeks at other times.<br>
-          <hr>
+
+            <h3>Plant Details</h3>
+            <b>Sunlight</b> :3-4 hours per day<br>
+
+            <b>Soil</b> :Use bonsai soil or a mix of loam, peat moss, and sand at a ratio of 2:2:1..<br>
+            <b>Temperature</b>: High, tropical temperatures<br>
+            <b>Fertilizer</b> :Apply a liquid bonsai fertilizer every two weeks during the growing season; every four to
+            six weeks at other times.<br>
+            <hr>
             <h3>Key points</h3>
-              <li><b>Outdoor</b>: Direct sunlight</li>
-              <li><b>Height</b>: 7 m (23 ft) Approx</li>
-              <li><b>Watering</b>: thrice a day</li>
-              <li><b>Scientific Name</b>: Murraya paniculata</li>
-              <li><b>Family</b>: Rutaceae</li>
-          <hr>
+            <li><b>Outdoor</b>: Direct sunlight</li>
+            <li><b>Height</b>: 7 m (23 ft) Approx</li>
+            <li><b>Watering</b>: thrice a day</li>
+            <li><b>Scientific Name</b>: Murraya paniculata</li>
+            <li><b>Family</b>: Rutaceae</li>
+            <hr>
             <h3>Care instruction</h3>
-            <p>  
+            <p>
               <li>Water regularly. Do not let soil get dry.</li>
               <li>Provide six hours of sunlight on a daily basis.</li>
               <li>Add the fertiliser monthly to the soil.</li>
               <li>Be careful to avoid overwatering and prune your plants if neccessary.</li>
-              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking clean and healthy, and often stimulates the development of new flowers.</li>
-            </p>    
+              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking
+                clean and healthy, and often stimulates the development of new flowers.</li>
+            </p>
             <button (click)="showDialog37 = !showDialog37" class="btn btn-primary">Close</button>
-          </div>    
+          </div>
         </div>
       </div>
-         </app-dialog>
+    </app-dialog>
 
-    </div> 
- <!-- DONE -->
+  </div>
+  <!-- DONE -->
 
-    <div class="col-lg-3 col-md-6 col-sm-12"  id="card1">
-               
-        <img class="card-img-top" id="mini-img" src="assets/flower/cflower9.jpg" >
-        <div class="card-body">
-          <h5 class="card-title" style="font-size: 25px;"> Kalenchoe Plant </h5>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          <span class="heading"> Rating  : </span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star unchecked "></span>
+  <div class="col-lg-3 col-md-6 col-sm-12" id="card1">
+
+    <img class="card-img-top" id="mini-img" src="assets/flower/cflower9.jpg">
+    <div class="card-body">
+      <h5 class="card-title" style="font-size: 25px;"> Kalenchoe Plant </h5>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <span class="heading"> Rating : </span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star unchecked "></span>
 
 
-          <button (click)="showDialog38 = !showDialog38" class="btn btn-primary">Details</button>
-        </div>
+      <button (click)="showDialog38 = !showDialog38" class="btn btn-primary">Details</button>
+    </div>
 
-      <app-dialog [(visible)]="showDialog38" title="Details Card" data-popup="width:300;height:250">
-        <div class="container">
-          <div class="split left">
-            <h2>Kalenchoe Plant</h2> 
+    <app-dialog [(visible)]="showDialog38" title="Details Card" data-popup="width:300;height:250">
+      <div class="container">
+        <div class="split left">
+          <h2>Kalenchoe Plant</h2>
           <img src="assets/flower/cflower9.jpg" class="slide" width="500" height="300" />
           <hr>
           <h3>Description</h3>
-            <p>Kalanchoe plants are thick-leaved succulents that are often seen in florist shops or garden centers. Most end up as potted plants but areas that can mimic their native land of Madagascar can grow them outdoors.</p>
-            <p>The clusters of tiny flowers produce a large bloom held aloft on stems above the majority of the foliage. If you wish a second bloom, it is incumbent to know how to take care of a kalanchoe. These plants need short winter light periods to form new buds. Learn how to grow kalanchoe and the perennial can reward you with several seasons of bright, colorful flowers.</p>
-            
+          <p>Kalanchoe plants are thick-leaved succulents that are often seen in florist shops or garden centers. Most
+            end up as potted plants but areas that can mimic their native land of Madagascar can grow them outdoors.</p>
+          <p>The clusters of tiny flowers produce a large bloom held aloft on stems above the majority of the foliage.
+            If you wish a second bloom, it is incumbent to know how to take care of a kalanchoe. These plants need short
+            winter light periods to form new buds. Learn how to grow kalanchoe and the perennial can reward you with
+            several seasons of bright, colorful flowers.</p>
+
         </div>
         <div class="split right">
           <div class="responsive">
-            <h2>Kalenchoe Plant</h2> 
+            <h2>Kalenchoe Plant</h2>
             <img src="assets/flower/cflower9.jpg" class="slide" width="500" height="300" />
             <h3>Description</h3>
-            <p>Kalanchoe plants are thick-leaved succulents that are often seen in florist shops or garden centers. Most end up as potted plants but areas that can mimic their native land of Madagascar can grow them outdoors.</p>
-            <p>The clusters of tiny flowers produce a large bloom held aloft on stems above the majority of the foliage. If you wish a second bloom, it is incumbent to know how to take care of a kalanchoe. These plants need short winter light periods to form new buds. Learn how to grow kalanchoe and the perennial can reward you with several seasons of bright, colorful flowers.</p>
-             </div>
+            <p>Kalanchoe plants are thick-leaved succulents that are often seen in florist shops or garden centers. Most
+              end up as potted plants but areas that can mimic their native land of Madagascar can grow them outdoors.
+            </p>
+            <p>The clusters of tiny flowers produce a large bloom held aloft on stems above the majority of the foliage.
+              If you wish a second bloom, it is incumbent to know how to take care of a kalanchoe. These plants need
+              short winter light periods to form new buds. Learn how to grow kalanchoe and the perennial can reward you
+              with several seasons of bright, colorful flowers.</p>
+          </div>
           <div class="centered">
-            
-            <h3>Plant Details</h3> 
-            <b>Sunlight</b>   :need bright indirect light <br>
-              
-              <b>Soil</b>       :Use a light soil composed of peat moss, sand, and perlite that drains well.<br>
-              <b>Temperature</b>:60°-85°F (15.6°-18.3°C)<br>
-              <b>Fertilizer</b> :high in nitrogen diluted to 1/2 the recommended strength<br>
-              <b>Feature </b>   :Kalanchoes are poisonous plants.
-          <hr>
+
+            <h3>Plant Details</h3>
+            <b>Sunlight</b> :need bright indirect light <br>
+
+            <b>Soil</b> :Use a light soil composed of peat moss, sand, and perlite that drains well.<br>
+            <b>Temperature</b>:60°-85°F (15.6°-18.3°C)<br>
+            <b>Fertilizer</b> :high in nitrogen diluted to 1/2 the recommended strength<br>
+            <b>Feature </b> :Kalanchoes are poisonous plants.
+            <hr>
             <h3>Key points</h3>
-              <li><b>Outdoor</b>: Direct sunlight</li>
-              <li><b>Height</b>: 1.5ft Approx</li>
-              <li><b>Watering</b>: Once a day</li>
-              <li><b>Scientific Name</b>: Kalenchoe Beharensis</li>
-              <li><b>Family</b>: Crassulaceae</li>
-          <hr>
+            <li><b>Outdoor</b>: Direct sunlight</li>
+            <li><b>Height</b>: 1.5ft Approx</li>
+            <li><b>Watering</b>: Once a day</li>
+            <li><b>Scientific Name</b>: Kalenchoe Beharensis</li>
+            <li><b>Family</b>: Crassulaceae</li>
+            <hr>
             <h3>Care instruction</h3>
-            <p>  
+            <p>
               <li>Water regularly. Do not let soil get dry.</li>
               <li>Provide six hours of sunlight on a daily basis.</li>
               <li>Add the fertiliser monthly to the soil.</li>
               <li>Be careful to avoid overwatering and prune your plants if neccessary.</li>
-              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking clean and healthy, and often stimulates the development of new flowers.</li>
-            </p>    
+              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking
+                clean and healthy, and often stimulates the development of new flowers.</li>
+            </p>
             <button (click)="showDialog38 = !showDialog38" class="btn btn-primary">Close</button>
-          </div>    
+          </div>
         </div>
       </div>
     </app-dialog>
 
-    </div> 
- <!-- DONE -->
+  </div>
+  <!-- DONE -->
 
-    <div class="col-lg-3 col-md-6 col-sm-12"  id="card1">
-               
-        <img class="card-img-top" id="mini-img" src="assets/flower/cflower10.jpg" >
-        <div class="card-body">
-          <h5 class="card-title" style="font-size: 25px;">Moon Cactus Blooming Plant </h5>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          <span class="heading"> Rating  : </span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star unchecked"></span>
-    <span class="fa fa-star unchecked "></span>
+  <div class="col-lg-3 col-md-6 col-sm-12" id="card1">
 
-          <button (click)="showDialog39 = !showDialog39" class="btn btn-primary">Details</button>
-        </div>
+    <img class="card-img-top" id="mini-img" src="assets/flower/cflower10.jpg">
+    <div class="card-body">
+      <h5 class="card-title" style="font-size: 25px;">Moon Cactus Blooming Plant </h5>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <span class="heading"> Rating : </span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star unchecked"></span>
+      <span class="fa fa-star unchecked "></span>
 
-      <app-dialog [(visible)]="showDialog39" title="Details Card" data-popup="width:300;height:250">
-        <div class="container">
-          <div class="split left">
-            <h2>Moon Cactus Blooming Plant</h2> 
+      <button (click)="showDialog39 = !showDialog39" class="btn btn-primary">Details</button>
+    </div>
+
+    <app-dialog [(visible)]="showDialog39" title="Details Card" data-popup="width:300;height:250">
+      <div class="container">
+        <div class="split left">
+          <h2>Moon Cactus Blooming Plant</h2>
           <img src="assets/flower/cflower10.jpg" class="slide" width="500" height="300" />
           <hr>
           <h3>Description</h3>
-            <p>A cactus (plural cacti, cactuses, or less commonly, cactus) is a member of the plant family Cactaceae, a family comprising about 127 genera with some 1750 known species of the order Caryophyllales. </p>
-            <p>Cacti occur in a wide range of shapes and sizes. Most cacti live in habitats subject to at least some drought. Many live in extremely dry environments, even being found in the Atacama Desert, one of the driest places on earth. Cacti show many adaptations to conserve water. </p>
-            
+          <p>A cactus (plural cacti, cactuses, or less commonly, cactus) is a member of the plant family Cactaceae, a
+            family comprising about 127 genera with some 1750 known species of the order Caryophyllales. </p>
+          <p>Cacti occur in a wide range of shapes and sizes. Most cacti live in habitats subject to at least some
+            drought. Many live in extremely dry environments, even being found in the Atacama Desert, one of the driest
+            places on earth. Cacti show many adaptations to conserve water. </p>
+
         </div>
         <div class="split right">
           <div class="responsive">
-            <h2>Moon Cactus Blooming Plant</h2> 
+            <h2>Moon Cactus Blooming Plant</h2>
             <img src="assets/flower/cflower10.jpg" class="slide" width="500" height="300" />
             <h3>Description</h3>
-            <p>A cactus (plural cacti, cactuses, or less commonly, cactus) is a member of the plant family Cactaceae, a family comprising about 127 genera with some 1750 known species of the order Caryophyllales. </p>
-            <p>Cacti occur in a wide range of shapes and sizes. Most cacti live in habitats subject to at least some drought. Many live in extremely dry environments, even being found in the Atacama Desert, one of the driest places on earth. Cacti show many adaptations to conserve water. </p>
-            </div>
+            <p>A cactus (plural cacti, cactuses, or less commonly, cactus) is a member of the plant family Cactaceae, a
+              family comprising about 127 genera with some 1750 known species of the order Caryophyllales. </p>
+            <p>Cacti occur in a wide range of shapes and sizes. Most cacti live in habitats subject to at least some
+              drought. Many live in extremely dry environments, even being found in the Atacama Desert, one of the
+              driest places on earth. Cacti show many adaptations to conserve water. </p>
+          </div>
           <div class="centered">
-            
-            <h3>Plant Details</h3> 
-            <b>Sunlight</b>   :eight hours of light each day<br>
-              
-              <b>Soil</b>       :The easiest medium requires three parts regular potting soil mixed with two parts perlite.<br>
-              <b>Temperature</b>:between 50 and 60°F (10 and 15°C).<br>
-              <b>Fertilizer</b> :higher in phosphorus than nitrogen<br>
-              <b>Feature </b>   :They have fleshy succulent stems that are major organs of photosynthesis.
+
+            <h3>Plant Details</h3>
+            <b>Sunlight</b> :eight hours of light each day<br>
+
+            <b>Soil</b> :The easiest medium requires three parts regular potting soil mixed with two parts perlite.<br>
+            <b>Temperature</b>:between 50 and 60°F (10 and 15°C).<br>
+            <b>Fertilizer</b> :higher in phosphorus than nitrogen<br>
+            <b>Feature </b> :They have fleshy succulent stems that are major organs of photosynthesis.
             <h3>Key points</h3>
-              <li><b>Outdoor</b>: Direct sunlight</li>
-              <li><b>Height</b>: 1.5ft Approx</li>
-              <li><b>Watering</b>: Once a day</li>
-              <li><b>Scientific Name</b>: Crassula Ovata</li>
-              <li><b>Plant Type</b>: Cacti flowers have at least 10 petals, with the sepals combined with the petals, and have numerous stamens surrounding a multi-lobed stigma.</li>
-          <hr>
+            <li><b>Outdoor</b>: Direct sunlight</li>
+            <li><b>Height</b>: 1.5ft Approx</li>
+            <li><b>Watering</b>: Once a day</li>
+            <li><b>Scientific Name</b>: Crassula Ovata</li>
+            <li><b>Plant Type</b>: Cacti flowers have at least 10 petals, with the sepals combined with the petals, and
+              have numerous stamens surrounding a multi-lobed stigma.</li>
+            <hr>
             <h3>Care instruction</h3>
-            <p>  
+            <p>
               <li>Water regularly. Do not let soil get dry.</li>
               <li>Provide six hours of sunlight on a daily basis.</li>
               <li>Add the fertiliser monthly to the soil.</li>
               <li>Be careful to avoid overwatering and prune your plants if neccessary.</li>
-              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking clean and healthy, and often stimulates the development of new flowers.</li>
-            </p>    
+              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking
+                clean and healthy, and often stimulates the development of new flowers.</li>
+            </p>
             <button (click)="showDialog39 = !showDialog39" class="btn btn-primary">Close</button>
-          </div>    
+          </div>
         </div>
       </div>
     </app-dialog>
 
-    </div> 
- <!-- DONE -->
+  </div>
+  <!-- DONE -->
 
-    <div class="col-lg-3 col-md-6 col-sm-12"  id="card1">
-               
-        <img class="card-img-top" id="mini-img" src="assets/flower/cflower11.jpg" >
-        <div class="card-body">
-          <h5 class="card-title" style="font-size: 25px;"> Blooming Adenium Plant </h5>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          <span class="heading"> Rating  : </span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star unchecked "></span>
+  <div class="col-lg-3 col-md-6 col-sm-12" id="card1">
 
-          <button (click)="showDialog3_10 = !showDialog3_10" class="btn btn-primary">Details</button>
-        </div>
+    <img class="card-img-top" id="mini-img" src="assets/flower/cflower11.jpg">
+    <div class="card-body">
+      <h5 class="card-title" style="font-size: 25px;"> Blooming Adenium Plant </h5>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <span class="heading"> Rating : </span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star unchecked "></span>
 
-      <app-dialog [(visible)]="showDialog3_10" title="Details Card" data-popup="width:300;height:250">
-        <div class="container">
-          <div class="split left">
-            <h2>Blooming Adenium Plant</h2> 
+      <button (click)="showDialog3_10 = !showDialog3_10" class="btn btn-primary">Details</button>
+    </div>
+
+    <app-dialog [(visible)]="showDialog3_10" title="Details Card" data-popup="width:300;height:250">
+      <div class="container">
+        <div class="split left">
+          <h2>Blooming Adenium Plant</h2>
           <img src="assets/flower/cflower11.jpg" class="slide" width="500" height="300" />
           <hr>
           <h3>Description</h3>
-            <p>Adenium obesum is grown as a houseplant in temperate regions. Numerous hybrids have been developed. Adeniums are appreciated for their colorful flowers, but also for their unusual, thick caudices. They can be grown for many years in a pot and are commonly used for bonsai. </p>
-            <p>Adenium obesum is also known as the desert rose. In the Philippines, due to its resemblance to the related genus Plumeria, and the fact that it was introduced to the Philippines from Bangkok, Thailand, the plant is also called as Bangkok kalachuchi.
+          <p>Adenium obesum is grown as a houseplant in temperate regions. Numerous hybrids have been developed.
+            Adeniums are appreciated for their colorful flowers, but also for their unusual, thick caudices. They can be
+            grown for many years in a pot and are commonly used for bonsai. </p>
+          <p>Adenium obesum is also known as the desert rose. In the Philippines, due to its resemblance to the related
+            genus Plumeria, and the fact that it was introduced to the Philippines from Bangkok, Thailand, the plant is
+            also called as Bangkok kalachuchi.
 
-              Due to its resemblance to a miniature frangipani tree and its popularity in bonsai, it is also sometimes known as Japanese frangipani.</p>
-            
+            Due to its resemblance to a miniature frangipani tree and its popularity in bonsai, it is also sometimes
+            known as Japanese frangipani.</p>
+
         </div>
         <div class="split right">
           <div class="responsive">
-            <h2>Blooming Adenium Plant</h2> 
+            <h2>Blooming Adenium Plant</h2>
             <img src="assets/flower/cflower11.jpg" class="slide" width="500" height="300" />
             <h3>Description</h3>
-            <p>Adenium obesum is grown as a houseplant in temperate regions. Numerous hybrids have been developed. Adeniums are appreciated for their colorful flowers, but also for their unusual, thick caudices. They can be grown for many years in a pot and are commonly used for bonsai. </p>
-            <p>Adenium obesum is also known as the desert rose. In the Philippines, due to its resemblance to the related genus Plumeria, and the fact that it was introduced to the Philippines from Bangkok, Thailand, the plant is also called as Bangkok kalachuchi.
+            <p>Adenium obesum is grown as a houseplant in temperate regions. Numerous hybrids have been developed.
+              Adeniums are appreciated for their colorful flowers, but also for their unusual, thick caudices. They can
+              be grown for many years in a pot and are commonly used for bonsai. </p>
+            <p>Adenium obesum is also known as the desert rose. In the Philippines, due to its resemblance to the
+              related genus Plumeria, and the fact that it was introduced to the Philippines from Bangkok, Thailand, the
+              plant is also called as Bangkok kalachuchi.
 
-              Due to its resemblance to a miniature frangipani tree and its popularity in bonsai, it is also sometimes known as Japanese frangipani.</p>
-             </div>
+              Due to its resemblance to a miniature frangipani tree and its popularity in bonsai, it is also sometimes
+              known as Japanese frangipani.</p>
+          </div>
           <div class="centered">
-            
-            <h3>Plant Details</h3> 
-            <b>Sunlight</b>   :plenty of sunlight<br>
-              
-              <b>Soil</b>       :use succulent/cactus soil for adenium (pH of 6.0).<br>
-              <b>Temperature</b>:above 60˙F<br>
-              <b>Fertilizer</b> : phosphorus-rich fertilizer or bone meal.<br>
-              <b>Feature </b>   :Adenium is a sun-lover
-          <hr>
+
+            <h3>Plant Details</h3>
+            <b>Sunlight</b> :plenty of sunlight<br>
+
+            <b>Soil</b> :use succulent/cactus soil for adenium (pH of 6.0).<br>
+            <b>Temperature</b>:above 60˙F<br>
+            <b>Fertilizer</b> : phosphorus-rich fertilizer or bone meal.<br>
+            <b>Feature </b> :Adenium is a sun-lover
+            <hr>
             <h3>Key points</h3>
-              <li><b>Outdoor</b>: Direct sunlight</li>
-              <li><b>Height</b>: 1.5ft Approx</li>
-              <li><b>Watering</b>: Once a day</li>
-              <li><b>Scientific Name</b>: Adenium obesum</li>
-              <li><b>Family</b>:  Apocynaceae</li>
-          <hr>
+            <li><b>Outdoor</b>: Direct sunlight</li>
+            <li><b>Height</b>: 1.5ft Approx</li>
+            <li><b>Watering</b>: Once a day</li>
+            <li><b>Scientific Name</b>: Adenium obesum</li>
+            <li><b>Family</b>: Apocynaceae</li>
+            <hr>
             <h3>Care instruction</h3>
-            <p>  
+            <p>
               <li>Water regularly. Do not let soil get dry.</li>
               <li>Provide six hours of sunlight on a daily basis.</li>
               <li>Add the fertiliser monthly to the soil.</li>
               <li>Be careful to avoid overwatering and prune your plants if neccessary.</li>
-              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking clean and healthy, and often stimulates the development of new flowers.</li>
-            </p>    
+              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking
+                clean and healthy, and often stimulates the development of new flowers.</li>
+            </p>
             <button (click)="showDialog3_10 = !showDialog3_10" class="btn btn-primary">Close</button>
-          </div>    
+          </div>
         </div>
       </div>
     </app-dialog>
 
-    </div> 
- <!-- DONE -->
+  </div>
+  <!-- DONE -->
 
-    <div class="col-lg-3 col-md-6 col-sm-12"  id="card1">
-               
-      <img class="card-img-top" id="mini-img" src="assets/flower/cflower12.jpg" >
-      <div class="card-body">
-        <h5 class="card-title" style="font-size: 25px;"> Double Layer Bamboo </h5>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <span class="heading"> Rating  : </span>
-  <span class="fa fa-star checked"></span>
-  <span class="fa fa-star checked"></span>
-  <span class="fa fa-star checked"></span>
-  <span class="fa fa-star checked"></span>
-  <span class="fa fa-star-half-full checked "></span>
+  <div class="col-lg-3 col-md-6 col-sm-12" id="card1">
 
-        <button (click)="showDialog3_11 = !showDialog3_11" class="btn btn-primary">Details</button>
-      </div>
+    <img class="card-img-top" id="mini-img" src="assets/flower/cflower12.jpg">
+    <div class="card-body">
+      <h5 class="card-title" style="font-size: 25px;"> Double Layer Bamboo </h5>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <span class="heading"> Rating : </span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star-half-full checked "></span>
+
+      <button (click)="showDialog3_11 = !showDialog3_11" class="btn btn-primary">Details</button>
+    </div>
 
     <app-dialog [(visible)]="showDialog3_11" title="Details Card" data-popup="width:300;height:250">
       <div class="container">
         <div class="split left">
-          <h2>Double Layer Bamboo </h2> 
-        <img src="assets/flower/cflower12.jpg" class="slide" width="500" height="300" />
-        <hr>
-        <h3>Description</h3>
-          <p>Dracaena sanderiana is a species of flowering plant, native to Central Africa. The plant is commonly marketed as "lucky bamboo".</p>
-          <p>A perennial herb reaching a height of 100 cm (39 in), the plant has slightly twisted leaves of grey-green colour, with a length of which is up to 23 cm (9 in). The stem is fleshy, which distinguishes it from bamboo. It requires bright, ventilated areas. It tolerates dry air and does not require constant spraying. A very tenacious plant, it is rather difficult to destroy it.</p>
-          
-      </div>
-      <div class="split right">
-        <div class="responsive">
-          <h2>Double Layer Bamboo </h2> 
+          <h2>Double Layer Bamboo </h2>
           <img src="assets/flower/cflower12.jpg" class="slide" width="500" height="300" />
+          <hr>
           <h3>Description</h3>
-          <p>Dracaena sanderiana is a species of flowering plant, native to Central Africa. The plant is commonly marketed as "lucky bamboo".</p>
-          <p>A perennial herb reaching a height of 100 cm (39 in), the plant has slightly twisted leaves of grey-green colour, with a length of which is up to 23 cm (9 in). The stem is fleshy, which distinguishes it from bamboo. It requires bright, ventilated areas. It tolerates dry air and does not require constant spraying. A very tenacious plant, it is rather difficult to destroy it.</p>
-           </div>
-        <div class="centered">
-          
-          <h3>Plant Details</h3> 
-          <b>Sunlight</b>   :3-4 hours per day<br>
-            
-            <b>Soil</b>       :Keep soil moderately moist—not soggy, and not desert dry.<br>
+          <p>Dracaena sanderiana is a species of flowering plant, native to Central Africa. The plant is commonly
+            marketed as "lucky bamboo".</p>
+          <p>A perennial herb reaching a height of 100 cm (39 in), the plant has slightly twisted leaves of grey-green
+            colour, with a length of which is up to 23 cm (9 in). The stem is fleshy, which distinguishes it from
+            bamboo. It requires bright, ventilated areas. It tolerates dry air and does not require constant spraying. A
+            very tenacious plant, it is rather difficult to destroy it.</p>
+
+        </div>
+        <div class="split right">
+          <div class="responsive">
+            <h2>Double Layer Bamboo </h2>
+            <img src="assets/flower/cflower12.jpg" class="slide" width="500" height="300" />
+            <h3>Description</h3>
+            <p>Dracaena sanderiana is a species of flowering plant, native to Central Africa. The plant is commonly
+              marketed as "lucky bamboo".</p>
+            <p>A perennial herb reaching a height of 100 cm (39 in), the plant has slightly twisted leaves of grey-green
+              colour, with a length of which is up to 23 cm (9 in). The stem is fleshy, which distinguishes it from
+              bamboo. It requires bright, ventilated areas. It tolerates dry air and does not require constant spraying.
+              A very tenacious plant, it is rather difficult to destroy it.</p>
+          </div>
+          <div class="centered">
+
+            <h3>Plant Details</h3>
+            <b>Sunlight</b> :3-4 hours per day<br>
+
+            <b>Soil</b> :Keep soil moderately moist—not soggy, and not desert dry.<br>
             <b>Temperature</b>:15 to 22 °C (59 to 72 °F)<br>
             <b>Fertilizer</b> :organic compost or manure<br>
-            <b>Feature </b>   :It is multiplied by cutting a part of the stem just above the eye. Cuttings can be made year round.
-        <hr>
-          <h3>Key points</h3>
+            <b>Feature </b> :It is multiplied by cutting a part of the stem just above the eye. Cuttings can be made
+            year round.
+            <hr>
+            <h3>Key points</h3>
             <li><b>Outdoor</b>: Direct sunlight</li>
             <li><b>Height</b>: 20cm Approx</li>
             <li><b>Watering</b>: Once a week</li>
             <li><b>Scientific Name</b>: Dracaena sanderiana</li>
             <li><b>Family</b>: Asparagaceae</li>
-        <hr>
-          <h3>Care instruction</h3>
-          <p>  
-            <li>Water regularly. Do not let soil get dry.</li>
-            <li>Provide six hours of sunlight on a daily basis.</li>
-            <li>Add the fertiliser monthly to the soil.</li>
-            <li>Be careful to avoid overwatering and prune your plants if neccessary.</li>
-            <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking clean and healthy, and often stimulates the development of new flowers.</li>
-          </p>    
-          <button (click)="showDialog3_11 = !showDialog3_11" class="btn btn-primary">Close</button>
-        </div>    
+            <hr>
+            <h3>Care instruction</h3>
+            <p>
+              <li>Water regularly. Do not let soil get dry.</li>
+              <li>Provide six hours of sunlight on a daily basis.</li>
+              <li>Add the fertiliser monthly to the soil.</li>
+              <li>Be careful to avoid overwatering and prune your plants if neccessary.</li>
+              <li>Remove faded flowers by pinching off at the base of the flower stem. This keeps the plant looking
+                clean and healthy, and often stimulates the development of new flowers.</li>
+            </p>
+            <button (click)="showDialog3_11 = !showDialog3_11" class="btn btn-primary">Close</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </app-dialog>
+    </app-dialog>
 
-  </div> 
+  </div>
 
-    <!-- DONE --> 
+  <!-- DONE -->
 
-    <ng-template #noResults >
-        <p class="no-result">No results found for "{{filteredString}}".</p>
-      </ng-template>
+  <ng-template #noResults>
+    <p class="no-result">No results found for "{{filteredString}}".</p>
+  </ng-template>
 
 </div>
